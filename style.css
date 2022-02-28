@@ -1,0 +1,438 @@
+body{
+    margin: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+h1,h2,h3,p,a,th,td{
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    color: #4d4e56;
+}
+img{
+    display: block;
+    width: 100%;
+}
+.box{
+    margin: clamp(30px,7vw,90px) auto 0 auto;
+    width: min(100%,1200px);
+    padding: 10px;
+    /* border: solid 1px #333; */
+}
+.box h2{
+    font-size: clamp(30px,4vw,50px);
+    font-weight: bold;
+}
+.box h3{
+    font-size: clamp(20px,4vw,30px);
+}
+.flexBox{
+    display: flex;
+    margin-top: clamp(20px,6vw,50px);
+}
+
+/* header start */
+header{
+    transition: 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255, 0.8);
+    z-index: 1000;
+    border-bottom: solid 1px transparent;
+}
+.header_after{
+    transition: 0.3s;
+    border-bottom: solid 1px #4d4e56 !important;
+    background-color: rgb(255, 255, 255, 1) !important;
+}
+header .header{
+    width: min(100%,1000px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .header .logo{
+    text-decoration: none;
+    font-size: min(2vw,20px);
+    vertical-align: middle;
+}
+header .header .pc_menu{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+header .header .pc_menu .menu_text{
+    display: block;
+    margin: clamp(10px,1vw,15px);
+    text-decoration: none;
+    font-size: min(2vw,16px);
+    position: relative;
+}
+header .header .pc_menu .menu_text::after{
+    transition: 0.3s;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: #4d4e56;
+}
+header .header .pc_menu .menu_text:hover::after{
+    transition: 0.3s;
+    width: 100%;
+}
+header .header .pc_menu .menu_sns{
+    transition: 0.3;
+    width: min(3vw,30px);
+    height: min(3vw,30px);
+    border: solid 1px #4d4e56;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: clamp(10px,1vw,15px);
+    text-decoration: none;
+}
+header .header .pc_menu .menu_sns:hover{
+    transition: 0.3s;
+    background-color: #4d4e56;
+    color: #dad9d7 !important;
+}
+header .header .pc_menu .menu_sns i{
+    font-size: min(2vw,20px);
+}
+header .header .sp_menu,header .header .sp_barBox{
+    display: none;
+}
+@media screen and (max-width:700px){
+    header .header .logo{
+        font-size: 16px;
+    }
+    header .header .pc_menu{
+        display: none;
+    }
+    header .header .sp_barBox{
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 1000;
+        display: block;
+    }
+    header .header .sp_barBox div{
+        transition: 0.3s;
+        width: 100%;
+        height: 2px;
+        background-color: #4d4e56;
+        position: absolute;
+    }
+    header .header .sp_barBox .bar_1{
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    header .header .sp_barBox .bar_2{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    header .header .sp_barBox .bar_3{
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0) rotate(0deg);
+    }
+    .bar_1_after{
+        transition: 0.3s;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%,-50%) rotate(45deg) !important;
+        background-color: #dad9d7 !important;
+    }
+    .bar_2_after{
+        transition: 0.3s;
+        opacity: 0;
+    }
+    .bar_3_after{
+        transition: 0.3s;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%,-50%) rotate(-45deg) !important;
+        background-color: #dad9d7 !important;
+    }
+    header .header .sp_menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 50px 20px;
+        background-color: black;
+        opacity: 0.9;
+        z-index: 999;
+        display: none;
+    }
+    header .header .sp_menu .menu_text{
+        color: #dad9d7;
+        text-decoration: none;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+    header .header .sp_menu .snsBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    header .header .sp_menu .snsBox .menu_sns{
+        width: 30px;
+        height: 30px;
+        border: solid 1px #dad9d7;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+    header .header .sp_menu .snsBox .menu_sns i{
+        color: #dad9d7;
+    }
+}
+/* header end */
+
+/* top start */
+.top{
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.top h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: min(5vw,60px);
+    white-space: nowrap;
+    color: white;
+}
+.top h2 div{
+    position: relative;
+}
+.top h2 div::before{
+    content: "誰よりも誠実に";
+    position: absolute;
+    top: clamp(-100px,-4vw,-30px);
+    left: 0;
+    font-size: min(2vw,25px);
+}
+.top h2 div::after{
+    content: "K.Okazaki";
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    font-size: min(1vw,16px);
+}
+.top .sp_video{
+    display: none;
+}
+@media screen and (max-width:700px){
+    .top{
+        height: auto;
+    }
+    .top .pc_video{
+        display: none;
+    }
+    .top .sp_video{
+        display: block;
+        margin: 0 auto;
+    }
+}
+/* top end */
+
+/* about start */
+.about .flexBox .left{
+    width: 20%;
+}
+.about .flexBox .left img{
+    width: 70%;
+}
+.about .flexBox .right{
+    width: 80%;
+}
+.about .flexBox .right table{
+    font-size: clamp(12px,2vw,16px);
+}
+.about .flexBox .right table th,.about .flexBox .right table td{
+    text-align: left;
+    padding: 0 clamp(10px,4vw,50px) clamp(5px,3vw,20px) 0;
+    vertical-align: baseline;
+}
+@media screen and (max-width:700px){
+    .about .flexBox .left,.about .flexBox .right{
+        width: 100%;
+    }
+    .about .flexBox .left img{
+        width: 30%;
+    }
+    .about .flexBox .right table{
+        margin-top: 20px;
+    }
+    .about .flexBox{
+        display: block;
+    }
+}
+/* about end */
+
+/* service start */
+.service .flexBox{
+    margin-top: 50px;
+}
+.service .flexBox h3{
+    font-weight: bold;
+    width: min(30%,300px);
+    position: relative;
+}
+.service .flexBox h3::before{
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-size: clamp(11px,2vw,14px);
+    font-weight: normal;
+}
+.service .flexBox h3.direction::before{
+    content: "ディレクション";
+}
+.service .flexBox h3.design::before{
+    content: "デザイン";
+}
+.service .flexBox h3.coding::before{
+    content: "コーディング";
+}
+.service .flexBox p{
+    font-size: clamp(12px,2vw,15px);
+    width: 70%;
+}
+@media screen and (max-width:700px){
+    .service .flexBox{
+        display: block;
+    }
+    .service .flexBox p{
+        margin-top: 10px;
+    }
+    .service .flexBox h3,.service .flexBox p{
+        width: 100%;
+    }
+}
+/* service end */
+
+/* works start */
+.works .flexBox{
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.works .flexBox a{
+    display: block;
+    width: 32%;
+    border: solid 1px #4d4e56;
+    margin-bottom: 2%;
+    overflow: hidden;
+}
+.works .flexBox a .worskImg{
+    transition: 0.3s;
+}
+.works .flexBox a:hover .worskImg{
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+@media screen and (max-width:700px){
+    .works .flexBox a{
+        width: 48%;
+        margin-bottom: 4%;
+    }
+}
+/* works end */
+
+/* contact start */
+.contact p{
+    margin-top: clamp(20px,6vw,50px);
+    font-size: clamp(12px,2vw,15px);
+}
+.contact form{
+    width: 100%;
+    margin-top: clamp(20px,6vw,50px);
+}
+.contact form h3{
+    font-size: clamp(12px,2vw,15px);
+    margin-bottom: 5px;
+}
+.contact form h3 span{
+    color: white;
+    padding: 2px 5px;
+    background-color: #fe5e61;
+    font-weight: bold;
+    font-size: clamp(10px,2vw,12px);
+    margin-left: 10px;
+}
+input[type="text"],input[type="email"],input[type="textarea"]{
+    width: max(50%,300px);
+    margin-bottom: clamp(10px,3vw,20px);
+}
+.contact form textarea{
+    width: max(50%,300px);
+    height: 100px;
+}
+.contact form .submit{
+    display: block;
+    margin-top: 50px;
+    background-color: transparent;
+    border: solid 1px #808990;
+    color: #808990;
+    border-radius: 0;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.contact form .submit:hover{
+    color: white;
+    background-color: #808990;
+}
+@media screen and (max-width:700px){
+    input[type="text"],input[type="email"],input[type="textarea"],.contact form textarea{
+        width: 100%;
+    }
+    .contact form .submit{
+        margin: 50px auto 0 auto;
+    }
+}
+/* contact end */
+
+/* footer start */
+footer{
+    width: 80%;
+    margin: clamp(50px,10vw,100px) auto 0 auto;
+    border-top: solid 1px #4d4e56;
+    padding: clamp(50px,10vw,100px) 0;
+}
+footer h2{
+    text-align: center;
+    font-size: clamp(12px,5vw,25px);
+}
+footer .snsBox{
+    justify-content: center;
+    align-items: center;
+}
+footer .snsBox .menu_sns{
+    display: block;
+    margin: 0 20px;
+}
+footer .snsBox .menu_sns i{
+    font-size: clamp(20px,6vw,40px);
+}
+/* footer end */
